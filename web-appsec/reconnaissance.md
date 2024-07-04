@@ -1,4 +1,10 @@
-# Reconnaissance
+---
+cover: >-
+  https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.compuone.com%2Fthe-five-phases-of-penetration-testing%2F&psig=AOvVaw3Iez6_ktwsOlVjQtXb1-0S&ust=1720149332880000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLCHieW1jIcDFQAAAAAdAAAAABAE
+coverY: 0
+---
+
+# 😀 Reconnaissance
 
 ## "Hackers make the mistake of paying attention to the exploitation process, and neglecting the information gathering stage “
 

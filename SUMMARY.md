@@ -11,7 +11,7 @@
   * [Contact us](web-appsec/features-abuse/contact-us.md)
   * [File-Upload](web-appsec/features-abuse/file-upload.md)
 * [Web AppSec Nots](web-appsec/web-appsec-nots.md)
-* [Reconnaissance](web-appsec/reconnaissance.md)
+* [😀 Reconnaissance](web-appsec/reconnaissance.md)
 
 ## 🥷 Network Timeline
 
