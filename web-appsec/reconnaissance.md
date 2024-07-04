@@ -651,7 +651,10 @@ ffuf -w wordlist.txt -u https://example.com/FUZZ
 ffuf -w wordlist.txt -u https://example.com/_FUZZ
 
 # Automatically calibrate filtering options
- ffuf -w wordlist.txt -u https://example.com/FUZZ -ac
+ffuf -w wordlist.txt -u https://example.com/FUZZ -ac
+ 
+#FUZZ HOST HEADER
+ffuf -w /usr/share/wordlists/wfuzz/general/common.txt -u  http://hackycorp.com/ -H "HOST: FUZZ.hackycrop.com"
 
 # Fuzz file paths from wordlist.txt, match all responses but filter out those with content-size 42
 ffuf -w wordlist.txt -u https://example.org/FUZZ -mc all -fs 42 -c -v
