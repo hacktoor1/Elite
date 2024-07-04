@@ -13,6 +13,12 @@
 * [Web AppSec Nots](web-appsec/web-appsec-nots.md)
 * [😀 Reconnaissance](web-appsec/reconnaissance.md)
 
-## 🥷 Network Timeline
+## 🥷 Network-pentest
 
-* [OSCP](network-timeline/oscp.md)
+* [Recon](network-pentest/recon.md)
+
+## Programing
+
+* [JavaScript (JS)](programing/javascript-js/README.md)
+  * [window.location object](programing/javascript-js/window.location-object.md)
+* [Python](programing/python.md)
