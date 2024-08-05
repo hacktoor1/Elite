@@ -12,6 +12,7 @@
   * [File-Upload](web-appsec/features-abuse/file-upload.md)
 * [Web AppSec Nots](web-appsec/web-appsec-nots.md)
 * [😀 Reconnaissance](web-appsec/reconnaissance.md)
+* [Checklist](web-appsec/checklist.md)
 
 ## 🥷 Network-pentest
 
