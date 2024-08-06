@@ -18,6 +18,7 @@
 ## 🥷 Network-pentest
 
 * [Recon](network-pentest/recon.md)
+* [Notes](network-pentest/notes.md)
 
 ## Programing
 
