@@ -13,6 +13,7 @@
 * [Web AppSec Nots](web-appsec/web-appsec-nots.md)
 * [😀 Reconnaissance](web-appsec/reconnaissance.md)
 * [Checklist](web-appsec/checklist.md)
+* [Methodology v1.0](web-appsec/methodology-v1.0.md)
 
 ## 🥷 Network-pentest
 
