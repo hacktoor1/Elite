@@ -19,6 +19,6 @@ Hello there! I'm **Abdelrahman Ali** an avid cybersecurity enthusiast, embarking
 Dive into various cybersecurity fields with me, including:
 
 {% hint style="success" %}
-&#x20;Web AppSec. Network Sec. Revers Engeeniring, Malware Dev. Operating Systems,   Programming, Red Reaming Operation Trikcs
+&#x20;Web AppSec. Network Sec. Revers Engineering, Malware Dev. Operating Systems,   Programming, Red Reaming Operation Tricks
 {% endhint %}
 

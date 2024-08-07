@@ -23,6 +23,7 @@
 * [Web Cache Deception](web-appsec/web-cache-deception.md)
 * [Web Cache Poisoning](web-appsec/web-cache-poisoning.md)
 * [Web AppSec Nots](web-appsec/web-appsec-nots.md)
+* [Broken Link Injection](web-appsec/broken-link-injection.md)
 * [😀 Reconnaissance](web-appsec/reconnaissance/README.md)
   * [Scope](web-appsec/reconnaissance/scope.md)
 * [Checklist](web-appsec/checklist.md)
