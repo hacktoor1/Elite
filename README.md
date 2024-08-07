@@ -12,6 +12,8 @@ description: Abdelrahman Ali(H3ckt00r) | Pentester | Red Teamer
 
 Hello there! I'm **Abdelrahman Ali** an avid cybersecurity enthusiast, embarking on a journey to explore and share insights into the dynamic world of digital security.
 
+<figure><img src="https://media.giphy.com/media/3oEjHWpiVIOGXT5l9m/giphy.gif" alt=""><figcaption></figcaption></figure>
+
 ## Content: <a href="#content" id="content"></a>
 
 Dive into various cybersecurity fields with me, including:
