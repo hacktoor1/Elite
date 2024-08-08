@@ -123,4 +123,8 @@ Host: target.com
 http://example.com/wp-login.php?action=register
 ```
 
-\
+if SSL peer certificate or SSH remote key was not OK  use **`--disable-tls-checks`**&#x20;
+
+```bash
+wpscan  --url https://ex.com/ --disable-tls-checks
+```
