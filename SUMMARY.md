@@ -14,6 +14,7 @@
   * [File-Upload](web-appsec/features-abuse/file-upload.md)
 * [Technologies](web-appsec/technologies/README.md)
   * [WordPress](web-appsec/technologies/wordpress.md)
+* [Information Disclosure](web-appsec/information-disclosure.md)
 * [CRLF Injection](web-appsec/crlf-injection.md)
 * [Forgot Password](web-appsec/forgot-password.md)
 * [Account Takeover](web-appsec/account-takeover.md)
