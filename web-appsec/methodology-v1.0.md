@@ -26,13 +26,15 @@
 
 ### **JSfinder to find a JS files**
 
-```jsx
-python JSFinder.py -u <https://www.example.com>
-```
+<pre class="language-jsx" data-overflow="wrap"><code class="lang-jsx">echo "invisionapp.com" | waybackurls | grep -iE '.js'|grep -ivE '.json'|sort -u  > j.txt
+<strong>python JSFinder.py -u &#x3C;https://www.example.com>
+</strong></code></pre>
 
 **=========================================================================**
 
-### **Sublist3r to Enumerating subdomains**
+## &#x20;**Enumerating subdomains**
+
+### **Sublist3r**
 
 ```jsx
 sublist3r -d mathworks.com -o sublis3r-domain.txt
@@ -64,33 +66,24 @@ cat  do.txt | httprobe
 
 **===========================================================================**
 
+{% code overflow="wrap" %}
 ```jsx
 cat do.txt | xargs -n1 host | grep "has address" | cut -d " " -f4  | sort -u  > ips.txt
-
 ```
-
-**cat ⇒ execute content**
+{% endcode %}
 
 **xargs ⇒ build and execute command lines from standard input**
 
-```
+```bash
    xargs [options] [command [initial-arguments]]
+   #1 -> if some other error occurred.
 ```
 
-**-n1`-n max-args, **--max-args**=*max-args*`**
 
-**`1 -> if some other error occurred.`**
-
-**grep ⇒ search in file**
-
-**cut ⇒ remove sections from each line of files**
-
-**`-d “ ” -f4 →`**
-
-* **d, --delimiter=DELIM use DELIM instead of TAB for field delimiter**
-* **f, --fields=LIST select only these fields; also print any line that contains no delimiter character, unless the -s option is specified**
 
 **=========================================================================**
+
+## Scanning open port
 
 ### **masscan**
 
@@ -102,17 +95,17 @@ masscan -Il ips.txt -p0-65535 --rate=100 --interface ethx
 
 **=========================================================================**
 
-#### **namp**
+### **namp**
 
-```
-namp -p- -sC -sV -Pn -iL -F ips.txt
+```bash
+namp -p- -sC -sV -Pn -iL -T4 -sS --script="*" ips.txt
 ```
 
 **=========================================================================**
 
 ### **amass**
 
-```
+```bash
 amass enum -brute -d domain.com -o amass_domain.txt
 ```
 
@@ -120,21 +113,71 @@ amass enum -brute -d domain.com -o amass_domain.txt
 
 
 
+## Merging subdomains into one file:- \*-subs.txt
+
 <figure><img src="../.gitbook/assets/Untitled 7.png" alt=""><figcaption></figcaption></figure>
 
 **=========================================================================**
 
 ### **Nuclei**
 
-```
+```bash
 nuclei -l http_domains.txt -t nuclei-templates/
+
+#Subdomain Takeover
+nuclei -t /root/nuclei-templates/takeovers/ -l live-subs.txt
 ```
 
-* [ ] \
-  **Run FFUF**&#x20;
+## **Directory and File Enumeration**
 
-<pre class="language-bash"><code class="lang-bash"><strong>fuff -u https://exmple.com/FUZZ -w Onelistforall/onelistforallshort.txt -mc 200,403
+### **Gobuster**
+
+{% code overflow="wrap" %}
+```bash
+gobuster dir -u http://10.10.190.226 -w /usr/share/seclists/Discovery/Web-Content/big.txt -x aspx,asp,html,txt -o gobuster-80.txt -t 100
+```
+{% endcode %}
+
+### **Run FFUF**&#x20;
+
+<pre class="language-bash" data-overflow="wrap"><code class="lang-bash"><strong>fuff -u https://exmple.com/FUZZ -w Onelistforall/onelistforallshort.txt -mc 200,403,301,302 -c true -v -o Output.txt
 </strong></code></pre>
+
+## Hidden parameters
+
+### Arjun
+
+```bash
+arjun -u https://example.com/admin.login -w burp-parameter-names.txt
+```
+
+### Cors Misconfigration
+
+<pre class="language-bash"><code class="lang-bash">#To check CORS misconfigurations of specific domain:
+python cors_scan.py -u example.com
+
+#To enable more debug info, use -v:
+python cors_scan.py -u example.com -v
+
+<strong>#To save scan results to a JSON file, use -o:
+</strong>python cors_scan.py -u example.com -o output_filename
+
+#To check CORS misconfigurations of specific URL:
+python cors_scan.py -u http://example.com/restapi
+
+#To check CORS misconfiguration with specific headers:
+python cors_scan.py -u example.com -d "Cookie: test"
+
+#To check CORS misconfigurations of multiple domains/URLs:
+python cors_scan.py -i top_100_domains.txt -t 100
+
+#To enable proxy for CORScanner, use -p
+python cors_scan.py -u example.com -p http://127.0.0.1:8080
+
+#To use socks5 proxy, install PySocks with pip install PySocks
+
+python cors_scan.py -u example.com -p socks5://127.0.0.1:8080
+</code></pre>
 
 ### **Bypassing CSRF Protect**
 
