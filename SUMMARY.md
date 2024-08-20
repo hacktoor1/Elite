@@ -15,6 +15,7 @@
 * [Technologies](web-appsec/technologies/README.md)
   * [WordPress](web-appsec/technologies/wordpress.md)
 * [Information Disclosure](web-appsec/information-disclosure.md)
+* [CSRF](web-appsec/csrf.md)
 * [CRLF Injection](web-appsec/crlf-injection.md)
 * [Forgot Password](web-appsec/forgot-password.md)
 * [Account Takeover](web-appsec/account-takeover.md)
