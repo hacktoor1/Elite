@@ -34,7 +34,11 @@
 ## 🥷 Network-pentest
 
 * [Recon](network-pentest/recon.md)
-* [Basic Enumeration](network-pentest/basic-enumeration.md)
+* [AD](network-pentest/ad/README.md)
+  * [Basic Enumeration](network-pentest/ad/basic-enumeration.md)
+  * [BloodHound Enumeration](network-pentest/ad/bloodhound-enumeration.md)
+  * [No Credentials](network-pentest/ad/no-credentials.md)
+  * [AD Exploitation Tools](network-pentest/ad/ad-exploitation-tools.md)
 * [Notes](network-pentest/notes.md)
 
 ## Programing
