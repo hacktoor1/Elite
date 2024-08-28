@@ -34,6 +34,7 @@
 ## 🥷 Network-pentest
 
 * [Recon](network-pentest/recon.md)
+* [Basic Enumeration](network-pentest/basic-enumeration.md)
 * [Notes](network-pentest/notes.md)
 
 ## Programing
