@@ -34,11 +34,19 @@
 ## 🥷 Network-pentest
 
 * [Recon](network-pentest/recon.md)
-* [AD](network-pentest/ad/README.md)
-  * [Basic Enumeration](network-pentest/ad/basic-enumeration.md)
-  * [BloodHound Enumeration](network-pentest/ad/bloodhound-enumeration.md)
-  * [No Credentials](network-pentest/ad/no-credentials.md)
-  * [AD Exploitation Tools](network-pentest/ad/ad-exploitation-tools.md)
+* [Active Directory](network-pentest/active-directory/README.md)
+  * [AD Enumeration](network-pentest/active-directory/ad-enumeration/README.md)
+    * [Users, Computer, Groups](network-pentest/active-directory/ad-enumeration/users-computer-groups.md)
+    * [BloodHound Enumeration](network-pentest/active-directory/ad-enumeration/bloodhound-enumeration.md)
+    * [Credentials](network-pentest/active-directory/ad-enumeration/credentials.md)
+    * [AD Exploitation Tools](network-pentest/active-directory/ad-enumeration/ad-exploitation-tools.md)
+    * [PRIVILEGE ESCALATION](network-pentest/active-directory/ad-enumeration/privilege-escalation.md)
+  * [AD Techniqes](network-pentest/active-directory/ad-techniqes/README.md)
+    * [Domain PrivilegeEsc](network-pentest/active-directory/ad-techniqes/domain-privilegeesc/README.md)
+      * [AS-REP Roasting](network-pentest/active-directory/ad-techniqes/domain-privilegeesc/as-rep-roasting.md)
+      * [Kerberoasting](network-pentest/active-directory/ad-techniqes/domain-privilegeesc/kerberoasting.md)
+      * [Kerberos Delegation](network-pentest/active-directory/ad-techniqes/domain-privilegeesc/kerberos-delegation.md)
+      * [PTH, PTT, Overpth, ptk](network-pentest/active-directory/ad-techniqes/domain-privilegeesc/pth-ptt-overpth-ptk.md)
 * [Notes](network-pentest/notes.md)
 
 ## Programing

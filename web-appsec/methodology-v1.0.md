@@ -22,7 +22,7 @@
 >
 > **6-Emails**
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Recon Guide for Pentesters</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p>Recon Guide for Pentesters</p></figcaption></figure>
 
 ### **JSfinder to find a JS files**
 
@@ -686,9 +686,9 @@ _RequestVerificationToken=xxxdxxxaxxcxxx&_Username=daffa&_Password=test123
 *   [ ] \
 
 
-    <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
-    <figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 * [ ] to bypass open\_basedir use **`glob://`**
 
 ```php
