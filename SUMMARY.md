@@ -47,6 +47,7 @@
       * [Kerberoasting](network-pentest/active-directory/ad-techniqes/domain-privilegeesc/kerberoasting.md)
       * [Kerberos Delegation](network-pentest/active-directory/ad-techniqes/domain-privilegeesc/kerberos-delegation.md)
       * [PTH, PTT, Overpth, ptk](network-pentest/active-directory/ad-techniqes/domain-privilegeesc/pth-ptt-overpth-ptk.md)
+* [Red Team Note](network-pentest/red-team-note.md)
 * [Notes](network-pentest/notes.md)
 
 ## Programing
