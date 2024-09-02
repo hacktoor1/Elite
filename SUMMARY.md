@@ -39,7 +39,7 @@
     * [Users, Computer, Groups](network-pentest/active-directory/ad-enumeration/users-computer-groups.md)
     * [BloodHound Enumeration](network-pentest/active-directory/ad-enumeration/bloodhound-enumeration.md)
     * [Credentials](network-pentest/active-directory/ad-enumeration/credentials.md)
-    * [AD Exploitation Tools](network-pentest/active-directory/ad-enumeration/ad-exploitation-tools.md)
+    * [Credential Dumping](network-pentest/active-directory/ad-enumeration/credential-dumping.md)
     * [PRIVILEGE ESCALATION](network-pentest/active-directory/ad-enumeration/privilege-escalation.md)
   * [AD Techniqes](network-pentest/active-directory/ad-techniqes/README.md)
     * [Domain PrivilegeEsc](network-pentest/active-directory/ad-techniqes/domain-privilegeesc/README.md)
