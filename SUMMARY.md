@@ -34,6 +34,7 @@
 ## 🥷 Network-pentest
 
 * [Recon](network-pentest/recon.md)
+* [Windows Privilege Escalation](network-pentest/windows-privilege-escalation.md)
 * [Active Directory](network-pentest/active-directory/README.md)
   * [AD Enumeration](network-pentest/active-directory/ad-enumeration/README.md)
     * [Users, Computer, Groups](network-pentest/active-directory/ad-enumeration/users-computer-groups.md)
