@@ -30,6 +30,7 @@
 * [Broken Link Injection](web-appsec/broken-link-injection.md)
 * [Checklist](web-appsec/checklist.md)
 * [Methodology v1.0](web-appsec/methodology-v1.0.md)
+* [Checklist 1.1](web-appsec/checklist-1.1.md)
 
 ## 🥷 Network-pentest
 
