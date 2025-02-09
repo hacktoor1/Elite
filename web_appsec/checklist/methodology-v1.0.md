@@ -22,7 +22,7 @@
 >
 > **6-Emails**
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption><p>Recon Guide for Pentesters</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption><p>Recon Guide for Pentesters</p></figcaption></figure>
 
 ### **JSfinder to find a JS files**
 
@@ -87,7 +87,7 @@ cat do.txt | xargs -n1 host | grep "has address" | cut -d " " -f4  | sort -u  > 
 
 ### **masscan**
 
-<figure><img src="../.gitbook/assets/Untitled 4.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Untitled 4.png" alt=""><figcaption></figcaption></figure>
 
 ```
 masscan -Il ips.txt -p0-65535 --rate=100 --interface ethx
@@ -115,7 +115,7 @@ amass enum -brute -d domain.com -o amass_domain.txt
 
 ## Merging subdomains into one file:- \*-subs.txt
 
-<figure><img src="../.gitbook/assets/Untitled 7.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/Untitled 7.png" alt=""><figcaption></figcaption></figure>
 
 **========================================================================**
 
@@ -251,7 +251,7 @@ https://attacker.com/.target.com
 
     * [ ] 00000000-0000-0000-0000-000000000000 and 11111111-1111-1111-1111-1111111111111111
     * [ ] GUID Enumeration: try to disclose GUIDs using **`Google Dorks,Github,wayback,Burp,History`**
-    * [ ] if none of the GUID Enumeration methods work then try: **`SignUp, Reset Password,Other endpoints`**within the application and analyze the response&#x20;
+    * [ ] if none of the GUID Enumeration methods work then try: **`SignUp, Reset Password,Other endpoints`**&#x77;ithin the application and analyze the response&#x20;
     * [ ] **`403/401`**` ``Bypass:` if server responds back with a **`403/401`** then try ti use burp intruder and send 50-100 requests having different IDs: Ex: from **`/users/01 to /users/100`**&#x20;
 
     Bild IDORsL Sometimes information is not directly discloed, Lookout for endpoint and features that may disclose information such as export  files, emails or message alerts.
@@ -387,11 +387,11 @@ SQLi Via File upload	               ---	Try uploading `sleep(10)-- -.jpg` as fil
 * XSS metadata `exiftool -Artist=’ “><img src=1 onerror=alert(document.domain)>’ 88.jpeg`
 * XSS in SVG `<svg xmlns="http://www.w3.org/2000/svg" onload="alert(document.domain)"/>`
 * GIF to XSS `GIF89a/*<svg/onload=alert(1)>*/=alert(document.domain)//;`
-* [**XSS in PDF**](https://drive.google.com/file/d/1JQ\_DVGdopanC59hnf6TF1dOwNsF\_wkFY/view)
+* [**XSS in PDF**](https://drive.google.com/file/d/1JQ_DVGdopanC59hnf6TF1dOwNsF_wkFY/view)
 * [ZIP TO XXE](https://hackerone.com/reports/105434)
 * [SQL Injection - File name](https://shahjerry33.medium.com/sql-injection-the-file-upload-playground-6580b089d013)
 * [XXE ON JPEG](https://hackerone.com/reports/836877)
-* [Create A picture that steals Data](https://medium.com/@iframe\_h1/a-picture-that-steals-data-ff604ba101)
+* [Create A picture that steals Data](https://medium.com/@iframe_h1/a-picture-that-steals-data-ff604ba101)
 
 ### **SSRF**
 
@@ -680,16 +680,14 @@ _RequestVerificationToken=xxxdxxxaxxcxxx&_Username=daffa&_Password=test123
   * `FPM/FastCGI`
   * `disable_functions`: `pcntl_alarm,pcntl_fork,pcntl_waitpid,pcntl_wait,pcntl_wifexited,pcntl_wifstopped,pcntl_wifsignaled,pcntl_wifcontinued,pcntl_wexitstatus,pcntl_wtermsig,pcntl_wstopsig,pcntl_signal,pcntl_signal_get_handler,pcntl_signal_dispatch,pcntl_get_last_error,pcntl_strerror,pcntl_sigprocmask,pcntl_sigwaitinfo,pcntl_sigtimedwait,pcntl_exec,pcntl_getpriority,pcntl_setpriority,pcntl_async_signals,system,exec,shell_exec,popen,proc_open,passthru,symlink,link,syslog,imap_open,ld,mail`
 
-<!---->
-
-* [ ] IF Found **`disable_functions & open_basedir`** in PHP try using **`Open basedir`**&#x20;
-*   [ ] \
+- [ ] IF Found **`disable_functions & open_basedir`** in PHP try using **`Open basedir`**&#x20;
+-   [ ] \
 
 
-    <figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
 
-    <figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
-* [ ] to bypass open\_basedir use **`glob://`**
+    <figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+- [ ] to bypass open\_basedir use **`glob://`**
 
 ```php
 <?php
@@ -757,7 +755,7 @@ CSRF Checklist
 * [ ] **Bypass referer**
 * [ ] **Modifying Parameter Names => POST To GET**
 * [ ] **Modifying Parameter Names**
-  * [ ] [**`https://example.com/my/dear/api/val/num?_method=PUT`**](https://example.com/my/dear/api/val/num?\_method=PUT)
+  * [ ] [**`https://example.com/my/dear/api/val/num?_method=PUT`**](https://example.com/my/dear/api/val/num?_method=PUT)
     * _**`X-HTTP-Method`**_
     * _**X-HTTP-Method-Override**_
     * _**X-Method-Override**_
@@ -797,7 +795,7 @@ Note that if the **csrf token is related with the session cookie this attack won
     [ ]   * **`application/x-www-form-urlencoded`**
       * **`multipart/form-data`**
       * **`text/plain`**
-* [ ] _**Example (from**_ [_**here**_](https://brycec.me/posts/corctf\_2021\_challenges)_**) of sending JSON data as text/plain:**_
+* [ ] _**Example (from**_ [_**here**_](https://brycec.me/posts/corctf_2021_challenges)_**) of sending JSON data as text/plain:**_
 
 ```html
 <html>
@@ -885,7 +883,7 @@ http://bugbounty.dod.network = 127.0.0.2 (localhost)
 spoofed.burpcollaborator.net = 127.0.0.1
 ```
 
-<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 
 

@@ -174,9 +174,9 @@ cd .config/subfinder/
 
 **Certspotter**
 
-**1 :** [Sign up](https://sslmate.com/signup?for=certspotter\_api) for a free account.
+**1 :** [Sign up](https://sslmate.com/signup?for=certspotter_api) for a free account.
 
-**2 :** Login into the account and Navigate to this URL [https://sslmate.com/account/api\_credentials](https://sslmate.com/account/api\_credentials) and you will be able to get the **API Key**
+**2 :** Login into the account and Navigate to this URL [https://sslmate.com/account/api\_credentials](https://sslmate.com/account/api_credentials) and you will be able to get the **API Key**
 
 Note : 100 queries an hour is **free**.
 
@@ -441,7 +441,7 @@ httpx -list hosts.txt -silent -probe
 
 ***
 
-## **(5) Js Files - Directory - Parameters - **~~**Robot**~~**.txt**
+## **(5) Js Files - Directory - Parameters -&#x20;**~~**Robot**~~**.txt**
 
 > And now this is the interesting stage for me, we will collect the following through only one tool :
 
@@ -2643,7 +2643,7 @@ plJ2V12nLpOPwY6zTtzcoTxEN6wcvUJfHAdNovpp63hWTnbAbEZamIdxwyCqpzThDobeD354TeXFUaKv
 
 ### b) Google Dorking
 
-> **Google hacking**, also named **Google dorking**,is a [hacker](https://en.wikipedia.org/wiki/Hacker\_\(computer\_security\)) technique that uses Google Search and other [Google](https://en.wikipedia.org/wiki/Google) applications to find security holes in the [configuration](https://en.wikipedia.org/wiki/Computer\_configuration) and computer code that [websites](https://en.wikipedia.org/wiki/Website) are using.
+> **Google hacking**, also named **Google dorking**,is a [hacker](https://en.wikipedia.org/wiki/Hacker_\(computer_security\)) technique that uses Google Search and other [Google](https://en.wikipedia.org/wiki/Google) applications to find security holes in the [configuration](https://en.wikipedia.org/wiki/Computer_configuration) and computer code that [websites](https://en.wikipedia.org/wiki/Website) are using.
 
 #### I ) GooFuzz
 
@@ -2668,7 +2668,7 @@ GooFuzz -t nasa.gov -w wordlists/words-100.txt -p 3
 
 #### II ) DorkGen
 
-> Dorkgen is a dork query wrapper for popular search engines such as Google Search, DuckDuckGo, Yahoo and Bing. [Learn more about Google Hacking](https://en.wikipedia.org/wiki/Google\_hacking). The goal of this package is to provide simple interfaces to creates valid dork queries for various search engines. This library was initially created for [**PhoneInfoga**](https://github.com/sundowndev/PhoneInfoga).
+> Dorkgen is a dork query wrapper for popular search engines such as Google Search, DuckDuckGo, Yahoo and Bing. [Learn more about Google Hacking](https://en.wikipedia.org/wiki/Google_hacking). The goal of this package is to provide simple interfaces to creates valid dork queries for various search engines. This library was initially created for [**PhoneInfoga**](https://github.com/sundowndev/PhoneInfoga).
 
 ```python
 # Install
