@@ -6,6 +6,7 @@
 
 * [😀 Reconnaissance](web_appsec/reconnaissance/README.md)
   * [Scope](web_appsec/reconnaissance/scope.md)
+  * [Methodology v1.0](web_appsec/reconnaissance/methodology-v1.0.md)
 * [Features Abuse](web_appsec/features-abuse/README.md)
   * [2FA](web_appsec/features-abuse/2fa.md)
   * [CAPTCHA](web_appsec/features-abuse/captcha.md)
@@ -28,8 +29,7 @@
 * [Web Cache Poisoning](web_appsec/web-cache-poisoning.md)
 * [Web AppSec Nots](web_appsec/web-appsec-nots.md)
 * [Broken Link Injection](web_appsec/broken-link-injection.md)
-* [Checklist](web_appsec/checklist/README.md)
-  * [Methodology v1.0](web_appsec/checklist/methodology-v1.0.md)
+* [Checklist](web_appsec/checklist.md)
 * [Checklist 1.1](web_appsec/checklist-1.1.md)
 
 ## 🥷 Network-pentest
